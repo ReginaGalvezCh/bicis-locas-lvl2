@@ -10,6 +10,8 @@ function validateForm(){
     }else if (inputname.charAt(0).toUpperCase() !== inputname.charAt(0)){
         alert('La primera letra de tu nombre debe de ser mayuscula');
         return false;
+    }else if {
+        
     }
     
 
