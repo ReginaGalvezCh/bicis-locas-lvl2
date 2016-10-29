@@ -15,7 +15,10 @@ function validateForm(){
         nameContainer.appendChild(errorName); 
         return false;
     }else if (inputname.match(/[^a-zA-Z]+/g)){
-
+        errorAlerta = document.createTextNode('Por favor solo ingresa letras');
+        errorName.appendChild(errorAlerta);
+        nameContainer.appendChild(errorName); 
+        return false;
     }
     
 
