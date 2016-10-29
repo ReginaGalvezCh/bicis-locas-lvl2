@@ -5,7 +5,7 @@ function validateForm(){
     var containerName = document.querySelector('.name-container');
     var errorName= document.createElement('span');
     if( inputname == null || inputname.length == 0|| /^\s+$/.test(inputname) ) {
-        errorAlerta = document.createTextNode('Debe ingresar su nombre');
+        errorAlerta = document.createTextNode('Parece que no has ingresado tu nombre');
         errorName.appendChild(errorAlerta);
         nameContainer.appendChild(errorName);
         return false;
@@ -21,16 +21,24 @@ function validateForm(){
         return false;
     }
     
-
-
-    var inputlastname = document.getElementById('lastname').value;
-    if( inputlastname == null || inputlastname.length == 0|| /^\s+$/.test(inputlastname) ) {
-        alert('Parece que no has ingresado tu apellido');
+    var inputLastName = document.getElementById('lastname').value;
+    var containerLastName = document.querySelector('.lastname-container');
+    var errorLastName = document.createElement('span');
+    if( inputLastName == null || inputLastName.length == 0|| /^\s+$/.test(inputLastName) ) {
+        errorAlerta = document.createTextNode('Parece que no has ingresado tu apellido');
+        errorLastName.appendChild(errorAlerta);
+        containerLastName.appendChild(errorLastName);
         return false;
-    }else if(inputlastname.charAt(0).toUpperCase() !== inputlastname.charAt(0)){
-        alert('La primera letra de tu apellido debe de ser mayuscula');
+    }else if(inputLastName.charAt(0).toUpperCase() !== inputLastName.charAt(0)){
+        errorAlerta = document.createTextNode('La Primera Letra Debe Ser MaYusCuLa');
+        errorLastName.appendChild(errorAlerta);
+        containerLastName.appendChild(errorLastName);
         return false;
-    }
+    }else if (inputLastName.match(/[^a-zA-Z]+/g)){
+        errorAlerta = document.createTextNode('Por favor solo ingresa letras');
+        errorLastName.appendChild(errorAlerta);
+        nameContainer.appendChild(errorLastName); 
+        return false;
 
     var pass = document.getElementById('input-password').value;
     if( pass == 0 ){
