@@ -10,10 +10,11 @@ function validateForm(){
         nameContainer.appendChild(errorName);
         return false;
     }else if (inputname.charAt(0).toUpperCase() !== inputname.charAt(0)){
-     errorAlerta = document.createTextNode('La Primera Letra Debe Ser MaYusCuLa');
-     
+        errorAlerta = document.createTextNode('La Primera Letra Debe Ser MaYusCuLa');
+        errorName.appendChild(errorAlerta);
+        nameContainer.appendChild(errorName); 
         return false;
-    }else if {
+    }else if (inputname.match(/[^a-zA-Z]+/g)){
 
     }
     
