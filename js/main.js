@@ -5,13 +5,16 @@ function validateForm(){
     var containerName = document.querySelector('.name-container');
     var errorName= document.createElement('span');
     if( inputname == null || inputname.length == 0|| /^\s+$/.test(inputname) ) {
-        alert('Parece que no has ingresado tu nombre');
+        errorAlerta = document.createTextNode('Debe ingresar su nombre');
+        errorName.appendChild(errorAlerta);
+        nameContainer.appendChild(errorName);
         return false;
     }else if (inputname.charAt(0).toUpperCase() !== inputname.charAt(0)){
-        alert('La primera letra de tu nombre debe de ser mayuscula');
+     errorAlerta = document.createTextNode('La Primera Letra Debe Ser MaYusCuLa');
+     
         return false;
     }else if {
-        
+
     }
     
 
