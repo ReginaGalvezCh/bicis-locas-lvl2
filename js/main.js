@@ -2,6 +2,8 @@
 function validateForm(){
     
     var inputname = document.getElementById('name').value;
+    var containerName = document.querySelector('.name-container');
+    var errorName= document.createElement('span');
     if( inputname == null || inputname.length == 0|| /^\s+$/.test(inputname) ) {
         alert('Parece que no has ingresado tu nombre');
         return false;
@@ -55,7 +57,6 @@ function validateForm(){
     }
    return true;
 } 
-
 
 
 
