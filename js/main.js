@@ -64,13 +64,13 @@ function validateForm(){
         errorPass.appendChild(passMensaje);
         contenedorPass.appendChild(errorPass);
         return false;
-    }else if(pass == "123456" || pass== "098754"){
-        errorAlerta = document.createTextNode('Hola no puedes usar 123456 ni 098754');
+    }else if(pass === "password" || pass === "123456" || pass === "098754"){
+        passMensaje = document.createTextNode('Hola no puedes usar 123456 ni 098754');
         errorPass.appendChild(passMensaje);
         contenedorPass.appendChild(errorPass);
         return false;
     } else if(pass.length < 6){
-        errorAlerta = document.createTextNode('Revisa que tu contraseña sea mayor de 6 digitos');
+        passMensaje = document.createTextNode('Revisa que tu contraseña sea mayor de 6 digitos');
         errorPass.appendChild(passMensaje);
         contenedorPass.appendChild(errorPass);            
     }
