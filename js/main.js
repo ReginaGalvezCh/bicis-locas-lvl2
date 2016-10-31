@@ -45,13 +45,21 @@ function validateForm(){
     var errorPass = document.createElement('span');
     if( pass == 0 ){
         passMensaje = document.createTextNode('Hola necesitamos tu contraseña');
-        errorContraseña.appendChild(passMensaje);
+        errorPass.appendChild(passMensaje);
         contenedorPass.appendChild(errorPass);
         return false;
-    }
-    
-    if(pass!= 123456 || pass!= 098754){
-        if(pass.length > 6){
+        }else if(pass!= 123456 || pass!= 098754){
+        errorAlerta = document.createTextNode('Hola no puedes usar 123456 ni 098754');
+        errorPass.appendChild(passMensaje);
+        contenedorPass.appendChild(errorPass);
+        return false;
+        } else if(pass.length < 6){
+
+
+
+
+
+        if
             return true;
         }else{
             alert('No puedes usar 123456 ni 098754');
