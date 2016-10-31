@@ -7,17 +7,17 @@ function validateForm(){
     if( inputname == null || inputname.length == 0|| /^\s+$/.test(inputname) ) {
         errorAlerta = document.createTextNode('Parece que no has ingresado tu nombre');
         errorName.appendChild(errorAlerta);
-        nameContainer.appendChild(errorName);
+        containerName.appendChild(errorName);
         return false;
     }else if (inputname.charAt(0).toUpperCase() !== inputname.charAt(0)){
         errorAlerta = document.createTextNode('La Primera Letra Debe Ser MaYusCuLa');
         errorName.appendChild(errorAlerta);
-        nameContainer.appendChild(errorName); 
+        containerName.appendChild(errorName); 
         return false;
     }else if (inputname.match(/[^a-zA-Z]+/g)){
         errorAlerta = document.createTextNode('Por favor solo ingresa letras');
         errorName.appendChild(errorAlerta);
-        nameContainer.appendChild(errorName); 
+        containerName.appendChild(errorName); 
         return false;
     }
     
@@ -40,24 +40,7 @@ function validateForm(){
         nameContainer.appendChild(errorLastName); 
         return false;
     }
-    var pass = document.getElementById('input-password').value;
-    var contenedorPass =  document.getElementById('input-password').parentNode;
-    var errorPass = document.createElement('span');
-    if( pass == 0 ){
-        passMensaje = document.createTextNode('Hola necesitamos tu contraseña');
-        errorPass.appendChild(passMensaje);
-        contenedorPass.appendChild(errorPass);
-        return false;
-    }else if(pass!= 123456 || pass!= 098754){
-        errorAlerta = document.createTextNode('Hola no puedes usar 123456 ni 098754');
-        errorPass.appendChild(passMensaje);
-        contenedorPass.appendChild(errorPass);
-        return false;
-    } else if(pass.length < 6){
-        errorAlerta = document.createTextNode('Revisa que tu contraseña sea mayor de 6 digitos');
-        errorPass.appendChild(passMensaje);
-        contenedorPass.appendChild(errorPass);            
-    }
+
     var mail = document.getElementById('input-email').value;
     var mailContenedor = document.querySelector('.email-container');
     var malmail = document.createElement('span');
@@ -72,29 +55,42 @@ function validateForm(){
         malmail.appendChild(warning);
         mailContenedor.appendChild(malmail);   
     }
-    (function escogerBici(){
-      var warningBici = document.createElement('span');
-      var alertBici   =  document.getElementById('alertBici');
-      var elijeqBici = document.getElementsByClassName('form-group')[1];
-      warningBici.setAttribute('id','alertBici');
-      if(alertBici != null){
-          elijeqBici.removeChild(alertBici);
-      }
-      if( qbici == null || qbici == 0 ){
-          var nodoTexqbici = document.createTextNode('Por favor escoge tu tipo de Bici');
-          alertaBici.appendChild(nodoTextqbici);
-          elijeqBici.appendChild(warningBici);
-      }})();
-  };
-  
 
-   /* var qbici = document.querySelector('select').value;
-   if( qbici == null || qbici == 0 ) {
-        alert('Hola elije una bici =)');
+    var pass = document.getElementById('input-password').value;
+    var contenedorPass =  document.getElementById('input-password').parentNode;
+    var errorPass = document.createElement('span');
+    if( pass == 0 ){
+        passMensaje = document.createTextNode('Hola necesitamos tu contraseña');
+        errorPass.appendChild(passMensaje);
+        contenedorPass.appendChild(errorPass);
+        return false;
+    }else if(pass == "123456" || pass== "098754"){
+        errorAlerta = document.createTextNode('Hola no puedes usar 123456 ni 098754');
+        errorPass.appendChild(passMensaje);
+        contenedorPass.appendChild(errorPass);
+        return false;
+    } else if(pass.length < 6){
+        errorAlerta = document.createTextNode('Revisa que tu contraseña sea mayor de 6 digitos');
+        errorPass.appendChild(passMensaje);
+        contenedorPass.appendChild(errorPass);            
+    }
+    
+    var qbici = document.getElementsByTagName('select')[0].value;
+    var biciContainer = document.getElementsByTagName('select')[0].parentNode;
+    var errorBici = document.createElement('span');
+    var moreInfo= document.querySelector(".checkbox span");
+    if( qbici == null || qbici == 0 ) {
+        warningBici = document.createTextNode('Por favor selecciona tu bicicleta');
+        errorBici.appendChild(warningBici);
+        biciContainer.appendChild(errorBici);
+        return false;
+    }  if( !moreInfo.checked ) {
         return false;
     }
     return true;
-} */
+}
+
+
 
 
 
