@@ -41,10 +41,13 @@ function validateForm(){
         return false;
 
     var pass = document.getElementById('input-password').value;
+    var contenedorPass =  document.getElementById('input-password').parentNode;
+    var errorPass = document.createElement('span');
     if( pass == 0 ){
-        alert('ingresa una contraseña');
+        passMensaje = document.createTextNode('Hola necesitamos tu contraseña');
+        errorContraseña.appendChild(passMensaje);
+        contenedorPass.appendChild(errorPass);
         return false;
-
     }
     
     if(pass!= 123456 || pass!= 098754){
