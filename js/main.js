@@ -40,51 +40,46 @@ function validateForm(){
         nameContainer.appendChild(errorLastName); 
         return false;
 
-    var pass = document.getElementById('input-password').value;
-    var contenedorPass =  document.getElementById('input-password').parentNode;
-    var errorPass = document.createElement('span');
-    if( pass == 0 ){
-        passMensaje = document.createTextNode('Hola necesitamos tu contraseña');
-        errorPass.appendChild(passMensaje);
-        contenedorPass.appendChild(errorPass);
-        return false;
-        }else if(pass!= 123456 || pass!= 098754){
-        errorAlerta = document.createTextNode('Hola no puedes usar 123456 ni 098754');
-        errorPass.appendChild(passMensaje);
-        contenedorPass.appendChild(errorPass);
-        return false;
-        } else if(pass.length < 6){
-
-
-
-
-
-        if
-            return true;
-        }else{
-            alert('No puedes usar 123456 ni 098754');
+        var pass = document.getElementById('input-password').value;
+        var contenedorPass =  document.getElementById('input-password').parentNode;
+        var errorPass = document.createElement('span');
+        if( pass == 0 ){
+            passMensaje = document.createTextNode('Hola necesitamos tu contraseña');
+            errorPass.appendChild(passMensaje);
+            contenedorPass.appendChild(errorPass);
             return false;
-        }
-    }else{
-        alert('No puedes usar 123456 ni 098754');
-        return false;
-    }
+        }else if(pass!= 123456 || pass!= 098754){
+            errorAlerta = document.createTextNode('Hola no puedes usar 123456 ni 098754');
+            errorPass.appendChild(passMensaje);
+            contenedorPass.appendChild(errorPass);
+            return false;
+        } else if(pass.length < 6){
+            errorAlerta = document.createTextNode('Revisa que tu contraseña sea mayor de 6 digitos');
+            errorPass.appendChild(passMensaje);
+            contenedorPass.appendChild(errorPass);            
 
-    var mail = document.getElementById('input-email').value;
-    if(mail.length == 0){
-        alert('ingresa tu email');
-        return false;
-    }
-    if( !(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(mail)) ) {
-        return false;
-    }
-    var qbici = document.querySelector('select').value;
-    if( qbici == null || qbici == 0 ) {
-        alert('Hola elije una bici =)');
-        return false;
-    }
-   return true;
-} 
+            var mail = document.getElementById('input-email').value;
+            var mailContenedor = document.querySelector('.email-container');
+            var malmail = document.createElement('span');
+            var cosas = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if(mail.length == 0){
+                warning = document.createTextNode('ingresa tu email');
+                malmail.appendChild(warning);
+                mailContenedor.appendChild(malmail);
+                return false;
+            }else if ( !cosas.test(mail)){
+                warning = document.createTextNode('ingresa caracteres validos');
+                malmail.appendChild(warning);
+                mailContenedor.appendChild(malmail);   
+            }
+            
+            var qbici = document.querySelector('select').value;
+            if( qbici == null || qbici == 0 ) {
+                alert('Hola elije una bici =)');
+                return false;
+            }
+            return true;
+        } 
 
 
 
