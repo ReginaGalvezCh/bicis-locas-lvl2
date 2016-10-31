@@ -64,7 +64,7 @@ function validateForm(){
         errorPass.appendChild(passMensaje);
         contenedorPass.appendChild(errorPass);
         return false;
-    }else if(pass === "password" || pass === "123456" || pass === "098754"){
+    }else if( pass === "123456" || pass === "098754"){
         passMensaje = document.createTextNode('Hola no puedes usar 123456 ni 098754');
         errorPass.appendChild(passMensaje);
         contenedorPass.appendChild(errorPass);
